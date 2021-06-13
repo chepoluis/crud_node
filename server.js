@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 // Parse request to body-parser
 app.use(express.urlencoded({ extended: true }));
 
-// Ser view engine
+// Set view engine
 app.set('view engine', 'ejs'); // By default takes the folder crud_node/views
 //app.set('views', path.resolve(__dirname, "views/ejs")); /* If you want to change the default folder views use this line and change the path */
 
@@ -25,7 +25,8 @@ app.use('/img', express.static(path.resolve(__dirname, 'assets/img')));
 app.use('/js', express.static(path.resolve(__dirname, 'assets/js')));
 
 app.get('/', (req, res) => {
-    res.send('Crud :D');
+    //res.send('Crud :D');
+    res.render('index.ejs');
 });
 
 app.listen(PORT, () => {
