@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodypaser = require('body-parser');
 const path = require('path');
 
+const connectDB = require('./server/database/connections');
 
 const app = express();
 
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 8080;
 
 // Log request
 app.use(morgan('dev'));
+
+// MongoDB connection
+connectDB();
 
 // Parse request to body-parser
 app.use(express.urlencoded({ extended: true }));
